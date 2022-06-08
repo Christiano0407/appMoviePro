@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+# Node_modules
+node_modules
+
+# Secrets.js (API KEY)
+src/js/secrets.js

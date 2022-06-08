@@ -1,0 +1,81 @@
+/*=============== Mobile ========================================*/
+@media (max-width: 360px) {}
+
+/*=============== Mobile ========================================*/
+@media (max-width: 480px) {
+    .header-title {
+        font-family: var(--font-family-titles);
+    }
+
+    .header-title--categoryView {
+        font-family: var(--font-family-titles);
+    }
+
+    .header-menu {
+        position: absolute;
+        right: 4.5rem;
+        top: 5rem;
+    }
+
+    .header-menu i {
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .header-menu i:active {
+        transform: scale(0.9);
+    }
+
+    .trendingPreview-movieList .movie-container .movie-img:hover {
+        filter: brightness(0.5);
+    }
+
+    .trendingPreview-movieList .movie-container .movie-img:active {
+        transform: scale(0.9);
+    }
+
+    #categoriesPreviewList {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+    }
+
+    .category-container {
+        margin-right: .5rem;
+    }
+}
+
+/*=============== #Option ========================================*/
+@media (min-width: 700px) {
+    .header-menu {
+        display: none;
+    }
+}
+
+/*=============== Tablet  ========================================*/
+@media screen and (min-width: 768px) {}
+
+/*=============== Screen Laptop ===================================*/
+@media screen and (min-width: 1024px) {}
+
+/*=============== #Option ===================================*/
+@media only screen and (min-width: 1200px) {}
+
+/*=============== Laptop Large  ===================================*/
+@media only screen and (min-width: 1440px) {}
+
+/*=============== Laptop Xtra Large =================================*/
+@media only screen and (min-width: 1920px) {}
+
+/* Design Model ====================================================*/
+@media screen and (orientation: landscape) {
+    body::after {
+        content: "Landscape";
+    }
+}
+
+@media screen and (orientation: portrait) {
+    body::after {
+        content: "Portrait";
+    }
+}
