@@ -321,6 +321,7 @@ footer {
     margin-right: 8px;
 }
 
+/** === Animation Skeletor === */
 .trendingPreview-movieList .movie-container .movie-img {
     height: 225px;
     min-height: 225px;
@@ -582,4 +583,27 @@ footer {
 /** Add in Js Navigation */
 .inactive {
     display: none;
+}
+
+/*! == Skeletor / Precarga o Recarga == */
+.movie-container .movie-container--loading {
+    background: #ccc;
+    animation-name: placeholder;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/*! == Animation == Carga o Recarga == */
+@keyframes placeholder {
+    0% {
+        background: #ccc;
+    }
+
+    50% {
+        background: #eee;
+    }
+
+    100% {
+        background: #ccc;
+    }
 }

@@ -121,7 +121,7 @@ async function getSimilarMoviesId(id) {
   createMovies(similarMovies, relatedMoviesContainer);
 }
 
-//** <<< Add New Movies >>> */
+//** <<< Add  Skeletor Animation Page  >>> */
 //** === Add Popular Movies */
 //*?====== CALL Functions ======= */
 /* getCategoriesPreview();
