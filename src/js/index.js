@@ -26,8 +26,8 @@ const getTrendingMoviesPreviews = async () => {
   //console.log(data.results);
   const movies = data.results;
   //console.log(movies);
-  //> Llamar a mi function Movies >>
-  createMovies(movies, trendingMoviesPreviewList);
+  //> Llamar a mi function Movies > Add lazyLoad === >
+  createMovies(movies, trendingMoviesPreviewList, true);
 };
 
 // &language=es-Mx (API)
@@ -121,8 +121,6 @@ async function getSimilarMoviesId(id) {
   createMovies(similarMovies, relatedMoviesContainer);
 }
 
-//** <<< Add  Skeletor Animation Page  >>> */
-//*! === Add Popular Movies */
 //*?====== CALL Functions ======= */
 /* getCategoriesPreview();
  getTrendingMoviesPreviews(); */

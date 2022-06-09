@@ -519,7 +519,7 @@ footer {
 
 /*? === MOVIE-IMG */
 .movie-img:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     filter: brightness(0.6);
 }
 

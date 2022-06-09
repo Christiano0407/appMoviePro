@@ -1,8 +1,22 @@
 //** === ==== ====  Function General API REST ======= ====== ====  */
 //*?  == No repetir el mismo código para la API / = Utils ( funciones que voy a usar )  = */
-//** Agregar los Endpointes de detllaes de peli ==> Movie Container */
 
-function createMovies(movies, container) {
+//*TODO:<<< ==== Add  Intersection Observer ===== >>> */
+//*? === Function(callback) / Object ( parameters o Option) === */
+const lazyLoader = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    //console.log(entry);
+    if (entry.isIntersecting) {
+      const URL = entry.target.getAttribute(`data-img`);
+      entry.target.setAttribute(`src`, URL);
+    }
+  });
+});
+//*? == Add Root == */
+//observer.observe();
+
+//*TODO: == Create Movies ==  Agregar los Endpointes de detllaes de peli ==> Movie Container ==== Add lazyLoader= == */
+function createMovies(movies, container, lazyLoad = false) {
   // => Limpiar antes mi "caché"
   container.innerHTML = " ";
 
@@ -19,20 +33,26 @@ function createMovies(movies, container) {
     movieImg.classList.add("movie-img");
     movieImg.setAttribute(`alt`, movie.title);
     movieImg.setAttribute(
-      `src`,
+      lazyLoad ? `data-img` : `src`,
       `https://image.tmdb.org/t/p/w300/` + movie.poster_path
     );
 
+    // = Add Observer=
+    if (lazyLoad) {
+      lazyLoader.observe(movieImg);
+    }
+
+    // == Add Movies HTML ==
+    movieContainer.appendChild(movieImg);
+    container.appendChild(movieContainer);
     /* const movieTitle = document.createElement("h2");
     movieTitle.classList.add("movie-titles");
     movieTitle.innerHTML = movie.title; */
     /* movieContainer.appendChild(movieTitle); */
-    // == Add Movies HTML ==
-    movieContainer.appendChild(movieImg);
-    container.appendChild(movieContainer);
   });
 }
 
+//*TODO: ====== Create Category => Creamos las Categoría ====== */
 const createCategories = (categories, container) => {
   // => Limpiar antes mi "caché"
   container.innerHTML = " ";
