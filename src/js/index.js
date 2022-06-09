@@ -122,7 +122,7 @@ async function getSimilarMoviesId(id) {
 }
 
 //** <<< Add  Skeletor Animation Page  >>> */
-//** === Add Popular Movies */
+//*! === Add Popular Movies */
 //*?====== CALL Functions ======= */
 /* getCategoriesPreview();
  getTrendingMoviesPreviews(); */

@@ -651,7 +651,7 @@ footer {
     animation-iteration-count: infinite;
 }
 
-/*! == Animation == Carga o Recarga == */
+/*! == Animation == Carga o Recarga == > Usar container.InnerHTML=" "  == > Permite recarga más rápida y limpiar caché ====  */
 @keyframes loading-skeleton {
 
     0%,
