@@ -370,6 +370,15 @@ footer {
     max-width: 150px;
 }
 
+.relatedMovies-scrollContainer .movie-container .movie-img {
+    height: 225px;
+    min-height: 225px;
+    max-height: 225px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+}
+
 /* Categories */
 .category-container {
     width: 45%;
@@ -508,6 +517,15 @@ footer {
     width: 100%;
 }
 
+/*? === MOVIE-IMG */
+.movie-img:hover {
+    cursor: pointer;
+    filter: brightness(0.6);
+}
+
+.movie-img:active {
+    transform: scale(0.9);
+}
 
 /* Movie Detail */
 .movieDetail-container {
@@ -574,7 +592,8 @@ footer {
     margin-right: 8px;
 }
 
-.relatedMovies-scrollContainer .movie-img {
+/** == Add Loading*/
+.relatedMovies-scrollContainer .movie-container--loading {
     width: 125px;
     min-width: 125px;
     max-width: 125px;
