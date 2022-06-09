@@ -210,6 +210,23 @@ footer {
     flex-wrap: wrap;
 }
 
+/** === Add Carga / Skeletor === */
+.category-container--loading {
+    background-color: var(--purple-light-2);
+    border-radius: .8rem;
+    height: 255px;
+    min-height: 255px;
+    max-height: 255px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    margin-bottom: 15px;
+    animation: loading-Skeleton infinite 1.5s;
+}
+
+.category-container--loading:nth-child(2) {
+    animation-delay: .2s;
+}
 
 /* Header */
 .header-container {
@@ -321,7 +338,29 @@ footer {
     margin-right: 8px;
 }
 
-/** === Animation Skeletor === */
+/** === Animation Skeletor = Shared = 01= */
+/*TODO:  === Add  Pantalla de Carga  == Skeleton ====  02*/
+.movie-container--loading {
+    background-color: var(--purple-light-2);
+    border-radius: .8rem;
+    height: 255px;
+    min-height: 255px;
+    max-height: 255px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    margin-bottom: 15px;
+    animation: loading-Skeleton infinite 1.5s;
+}
+
+.movie-container--loading:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.movie-container--loading:nth-child(3) {
+    animation-delay: .4s;
+}
+
 .trendingPreview-movieList .movie-container .movie-img {
     height: 225px;
     min-height: 225px;
@@ -594,16 +633,15 @@ footer {
 }
 
 /*! == Animation == Carga o Recarga == */
-@keyframes placeholder {
-    0% {
-        background: #ccc;
+@keyframes loading-skeleton {
+
+    0%,
+    100% {
+        opacity: 100%;
     }
 
     50% {
-        background: #eee;
+        opacity: 0%;
     }
 
-    100% {
-        background: #ccc;
-    }
 }
