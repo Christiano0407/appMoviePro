@@ -1,7 +1,7 @@
 //** === ==== ====  Function General API REST ======= ====== ====  */
 //*?  == No repetir el mismo código para la API / = Utils ( funciones que voy a usar )  = */
 
-//*TODO:<<< ==== Add  Intersection Observer ===== >>> */
+//*TODO:<<< ==== Add  Intersection Observer == LazyLoader === >>> */
 //*? === Function(callback) / Object ( parameters o Option) === */
 const lazyLoader = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
@@ -36,6 +36,14 @@ function createMovies(movies, container, lazyLoad = false) {
       lazyLoad ? `data-img` : `src`,
       `https://image.tmdb.org/t/p/w300/` + movie.poster_path
     );
+    // Error Img al cargar =
+    movieImg.addEventListener("error", () => {
+      //console.log("Error, al cargar una imagen");
+      movieImg.setAttribute(
+        "src",
+        "https://static.platzi.com/static/images/error/img404.png"
+      );
+    });
 
     // = Add Observer=
     if (lazyLoad) {

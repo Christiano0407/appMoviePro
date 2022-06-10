@@ -54,7 +54,7 @@ async function getMoviesByCategory(id) {
   // Limpiar e quitar doble carga
   //genericSection.innerHTML = " ";
 
-  createMovies(movies, genericSection);
+  createMovies(movies, genericSection, true);
 }
 
 //** ADD Get Search === */

@@ -197,8 +197,10 @@ footer {
     cursor: pointer;
 }
 
+/*? == Solution Js Error === */
 .movie-img {
     border-radius: 8px;
+    min-height: 17.5rem;
 }
 
 .categoriesPreview-list,
@@ -515,6 +517,7 @@ footer {
 
 .genericList-container .movie-img {
     width: 100%;
+    /*   min-height: 17.5rem; */
 }
 
 /*? === MOVIE-IMG */
