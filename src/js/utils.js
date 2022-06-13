@@ -90,22 +90,29 @@ const createCategories = (categories, container) => {
     container.appendChild(categoryContainer);
   });
 };
-//*TODO: ===== Add Btn Navigation and Scroll = Btns ===  */
-let page = 1;
+//*TODO: ===== Add Btn Navigation and Scroll = BUTTON 01 === Scoll 02 ===  */
 //getPaginatedTrendingMovies = async () => {};
 async function getPaginatedTrendingMovies() {
-  page++;
-  const { data } = await API(`trending/movie/day`, {
-    params: {
-      page,
-    },
-  });
-  const movies = data.results;
-  createMovies(movies, genericSection, { lazyLoad: true, clean: false });
-  //> Add Btn =
-  const btnLoader = document.createElement("button");
+  // Scroll 02 >
+  const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+  // = Validar =
+  const scrollValidationBtn = scrollTop + clientHeight >= scrollHeight - 15;
+
+  if (scrollValidationBtn) {
+    //> Page >
+    page++;
+    const { data } = await API(`trending/movie/day`, {
+      params: {
+        page,
+      },
+    });
+    const movies = data.results;
+    createMovies(movies, genericSection, { lazyLoad: true, clean: false });
+  }
+  //> Add Btn  01=
+  /* const btnLoader = document.createElement("button");
   btnLoader.innerText = "Cargar Más";
   btnLoader.classList.add("btnLoad");
   btnLoader.addEventListener("click", getPaginatedTrendingMovies);
-  genericSection.appendChild(btnLoader);
+  genericSection.appendChild(btnLoader); */
 }

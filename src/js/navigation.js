@@ -1,4 +1,7 @@
 //** ==== =====  Location And Hash =======   =====*/
+//*? === Add Page All Project === */
+let page = 1;
+let infiniteScroll;
 //*? === Buttons Events */
 searchFormBtn.addEventListener("click", () => {
   // > Add Value Fom input => Search
@@ -30,11 +33,19 @@ arrowBtn.addEventListener("click", () => {
 
 //*? == Events Load and HashLocation */
 window.addEventListener("DOMContentLoaded", navigator, false);
-window.addEventListener("hashchange", navigator, false);
+window.addEventListener("hashchange", navigator, false); //> Output >
+//window.addEventListener("scroll", getPaginatedTrendingMovies); //> Scroll Infinite >
+window.addEventListener("scroll", infiniteScroll);
 
 //*? == Navigation */
 function navigator() {
   console.log({ location });
+
+  // = Exist o no Infinite Scroll  on page or OutPut = 01 ==
+  if (infiniteScroll) {
+    window.addEventListener.remove("scroll", infiniteScroll);
+    infiniteScroll = undefined;
+  }
 
   if (location.hash.startsWith(`#trends`)) {
     trendsPage();
@@ -51,6 +62,11 @@ function navigator() {
   // ADD Scroll Top = Add Navegadores =>
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+
+  //> Exist or no my Infinite Scroll  = Yes:  02 ==
+  if (infiniteScroll) {
+    window.addEventListener("scroll", infiniteScroll);
+  }
 }
 
 //** == Agregar y remover secciones con "add" and "remove"  ===== */
@@ -161,6 +177,7 @@ function trendsPage() {
   // === ADD Trending Movies Really ==
   headerCategoryTitle.innerHTML = "Tendencias";
   trendingGetMovies();
+  infiniteScroll = getPaginatedTrendingMovies;
 }
 
 //** Historial de Navegación === Otra forma ====  Nos regrese a Home y no a la página anteriro ===== */

@@ -83,11 +83,11 @@ async function trendingGetMovies() {
   //> Llamar a mi function Movies >>
   createMovies(movies, genericSection, { lazyLoad: true, clean: true });
   // Add Btn Load More =
-  const btnLoader = document.createElement("button");
+  /* const btnLoader = document.createElement("button");
   btnLoader.innerText = "Cargar Más";
   btnLoader.classList.add("btnLoad");
   btnLoader.addEventListener("click", getPaginatedTrendingMovies);
-  genericSection.appendChild(btnLoader);
+  genericSection.appendChild(btnLoader); */
 }
 
 //** Add Get Movies By ID ===  */
