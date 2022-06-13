@@ -668,4 +668,12 @@ footer {
 
 }
 
-/** == Add Animations == */
+/** == Add Btn Load == */
+.btnLoad {
+    padding: 1rem;
+    margin-block: 1rem;
+}
+
+.btnLoad:active {
+    transform: scale(0.9);
+}

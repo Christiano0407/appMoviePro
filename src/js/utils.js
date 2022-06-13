@@ -84,3 +84,14 @@ const createCategories = (categories, container) => {
     container.appendChild(categoryContainer);
   });
 };
+//*TODO: ===== Add Btn Navigation and Scroll ====  */
+//getPaginatedTrendingMovies = async () => {};
+async function getPaginatedTrendingMovies() {
+  const { data } = await API(`trending/movie/day`, {
+    params: {
+      page: 2,
+    },
+  });
+  const movies = data.results;
+  createMovies(movies, genericSection);
+}
