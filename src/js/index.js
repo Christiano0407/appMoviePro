@@ -27,7 +27,7 @@ const getTrendingMoviesPreviews = async () => {
   const movies = data.results;
   //console.log(movies);
   //> Llamar a mi function Movies > Add lazyLoad === >
-  createMovies(movies, trendingMoviesPreviewList, true);
+  createMovies(movies, trendingMoviesPreviewList, { lazyLoad: true });
 };
 
 // &language=es-Mx (API)
@@ -54,7 +54,7 @@ async function getMoviesByCategory(id) {
   // Limpiar e quitar doble carga
   //genericSection.innerHTML = " ";
 
-  createMovies(movies, genericSection, true);
+  createMovies(movies, genericSection, { lazyLoad: true });
 }
 
 //** ADD Get Search === */
@@ -81,7 +81,7 @@ async function trendingGetMovies() {
   //console.log(data.results);
   const movies = data.results;
   //> Llamar a mi function Movies >>
-  createMovies(movies, genericSection);
+  createMovies(movies, genericSection, { lazyLoad: true, clean: true });
   // Add Btn Load More =
   const btnLoader = document.createElement("button");
   btnLoader.innerText = "Cargar Más";

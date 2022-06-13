@@ -16,9 +16,15 @@ const lazyLoader = new IntersectionObserver((entries, observer) => {
 //observer.observe();
 
 //*TODO: == Create Movies ==  Agregar los Endpointes de detllaes de peli ==> Movie Container ==== Add lazyLoader= == */
-function createMovies(movies, container, lazyLoad = false) {
+function createMovies(
+  movies,
+  container,
+  { lazyLoad = false, clean = true } = {}
+) {
   // => Limpiar antes mi "caché"
-  container.innerHTML = " ";
+  if (clean) {
+    container.innerHTML = " ";
+  }
 
   movies.forEach((movie) => {
     const movieContainer = document.createElement("div");
@@ -62,7 +68,7 @@ function createMovies(movies, container, lazyLoad = false) {
 
 //*TODO: ====== Create Category => Creamos las Categoría ====== */
 const createCategories = (categories, container) => {
-  // => Limpiar antes mi "caché"
+  // => Limpiar antes mi "caché" // All usar Navigation tenemos que editarlo ==>
   container.innerHTML = " ";
 
   categories.forEach((category) => {
@@ -84,14 +90,22 @@ const createCategories = (categories, container) => {
     container.appendChild(categoryContainer);
   });
 };
-//*TODO: ===== Add Btn Navigation and Scroll ====  */
+//*TODO: ===== Add Btn Navigation and Scroll = Btns ===  */
+let page = 1;
 //getPaginatedTrendingMovies = async () => {};
 async function getPaginatedTrendingMovies() {
+  page++;
   const { data } = await API(`trending/movie/day`, {
     params: {
-      page: 2,
+      page,
     },
   });
   const movies = data.results;
-  createMovies(movies, genericSection);
+  createMovies(movies, genericSection, { lazyLoad: true, clean: false });
+  //> Add Btn =
+  const btnLoader = document.createElement("button");
+  btnLoader.innerText = "Cargar Más";
+  btnLoader.classList.add("btnLoad");
+  btnLoader.addEventListener("click", getPaginatedTrendingMovies);
+  genericSection.appendChild(btnLoader);
 }
