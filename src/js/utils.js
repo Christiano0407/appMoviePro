@@ -30,11 +30,6 @@ function createMovies(
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
 
-    movieContainer.addEventListener("click", () => {
-      //location.hash = `#movie=` + movie.id;
-      location.hash = `#movie=${movie.id}`;
-    });
-
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
     movieImg.setAttribute(`alt`, movie.title);
@@ -42,6 +37,11 @@ function createMovies(
       lazyLoad ? `data-img` : `src`,
       `https://image.tmdb.org/t/p/w300/` + movie.poster_path
     );
+    movieImg.addEventListener("click", () => {
+      //location.hash = `#movie=` + movie.id;
+      location.hash = `#movie=${movie.id}`;
+    });
+
     // Error Img al cargar =
     movieImg.addEventListener("error", () => {
       //console.log("Error, al cargar una imagen");
@@ -51,6 +51,12 @@ function createMovies(
       );
     });
 
+    const btnLike = document.createElement("button");
+    btnLike.classList.add("btnLike");
+    btnLike.addEventListener("click", () => {
+      btnLike.classList.toggle("btnLike--liked");
+    });
+
     // = Add Observer=
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
@@ -58,6 +64,7 @@ function createMovies(
 
     // == Add Movies HTML ==
     movieContainer.appendChild(movieImg);
+    movieContainer.appendChild(btnLike);
     container.appendChild(movieContainer);
     /* const movieTitle = document.createElement("h2");
     movieTitle.classList.add("movie-titles");
