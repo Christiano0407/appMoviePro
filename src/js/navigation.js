@@ -44,12 +44,12 @@ function navigator() {
   console.log({ location });
 
   // = Exist o no Infinite Scroll  on page or OutPut = 01 ==
-  if (infiniteScroll) {
+  /* if (infiniteScroll) {
     window.addEventListener.remove("scroll", infiniteScroll, {
       passive: false,
     });
     infiniteScroll = undefined;
-  }
+  } */
 
   if (location.hash.startsWith(`#trends`)) {
     trendsPage();
@@ -118,6 +118,8 @@ function categoryPage() {
   headerCategoryTitle.innerHTML = categoryName;
 
   getMoviesByCategory(categoryId);
+
+  infiniteScroll = getPaginatedByMovieCategories(categoryId);
 }
 //*? =  Movie Detail Page  =  */
 //** Agregamos los detalles de las movies en Endpoints === */
@@ -163,6 +165,7 @@ function searchPage() {
   getMoviesBySearch(query);
 
   // == Scroll Infinite Search  =>
+  infiniteScroll = getBySearchPaginatedMovies(query);
 }
 //*? =  Trends Page  =  */
 function trendsPage() {

@@ -53,7 +53,9 @@ async function getMoviesByCategory(id) {
   const movies = data.results;
   // Limpiar e quitar doble carga
   //genericSection.innerHTML = " ";
-
+  // < Add Max Page >
+  maxPage = data.total_pages;
+  // <= Add Lazyload = Intersection Observer =>
   createMovies(movies, genericSection, { lazyLoad: true });
 }
 
@@ -69,6 +71,7 @@ async function getMoviesBySearch(query) {
   const movies = data.results;
   // Limpiar e quitar doble carga
   //genericSection.innerHTML = " ";
+  maxPage = data.total_pages;
 
   // Function[movies, container]
   createMovies(movies, genericSection);

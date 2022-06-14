@@ -90,6 +90,62 @@ const createCategories = (categories, container) => {
     container.appendChild(categoryContainer);
   });
 };
+
+//TODO: ======>>> Add  Paginated By Search Scroll Infinite ====== <<<<<<
+function getBySearchPaginatedMovies(query) {
+  // Scroll 02 >
+  return async function () {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    // = Validar =
+    const scrollValidationBtn = scrollTop + clientHeight >= scrollHeight - 15;
+
+    // = page is not Max of the maxPage =
+    const pageIsNotMax = page < maxPage;
+
+    if (scrollValidationBtn & pageIsNotMax) {
+      //> Page >
+      page++;
+      const { data } = await API("search/movie", {
+        params: {
+          query,
+          page,
+        },
+      });
+      const movies = data.results;
+      //console.log(data);
+      createMovies(movies, genericSection, { lazyLoad: true, clean: false });
+    }
+  };
+}
+
+function getPaginatedByMovieCategories(id) {
+  // Scroll 02 >
+  return async function () {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    // = Validar =
+    const scrollValidationBtn = scrollTop + clientHeight >= scrollHeight - 15;
+
+    // = page is not Max of the maxPage =
+    const pageIsNotMax = page < maxPage;
+
+    if (scrollValidationBtn & pageIsNotMax) {
+      //> Page >
+      page++;
+      const { data } = await API("discover/movie", {
+        params: {
+          with_genres: id,
+          page,
+        },
+      });
+      const movies = data.results;
+      //console.log(data);
+      createMovies(movies, genericSection, { lazyLoad: true, clean: false });
+    }
+  };
+}
+
 //*TODO: ===== Add Btn Navigation and Scroll = BUTTON 01 === Scoll 02 ===  */
 //getPaginatedTrendingMovies = async () => {};
 async function getPaginatedTrendingMovies() {
