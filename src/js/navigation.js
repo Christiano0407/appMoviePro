@@ -49,7 +49,7 @@ function navigator() {
       passive: false,
     });
     infiniteScroll = undefined;
-  } */
+  }  */
 
   if (location.hash.startsWith(`#trends`)) {
     trendsPage();

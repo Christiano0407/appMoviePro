@@ -120,7 +120,7 @@ function getBySearchPaginatedMovies(query) {
 }
 
 function getPaginatedByMovieCategories(id) {
-  // Scroll 02 >
+  // Scroll 02 = Add Closure with return = >
   return async function () {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 
