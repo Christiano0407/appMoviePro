@@ -95,10 +95,14 @@ const createCategories = (categories, container) => {
 async function getPaginatedTrendingMovies() {
   // Scroll 02 >
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
   // = Validar =
   const scrollValidationBtn = scrollTop + clientHeight >= scrollHeight - 15;
 
-  if (scrollValidationBtn) {
+  // = page is not Max of the maxPage =
+  const pageIsNotMax = page < maxPage;
+
+  if (scrollValidationBtn & pageIsNotMax) {
     //> Page >
     page++;
     const { data } = await API(`trending/movie/day`, {
@@ -107,6 +111,7 @@ async function getPaginatedTrendingMovies() {
       },
     });
     const movies = data.results;
+    //console.log(data);
     createMovies(movies, genericSection, { lazyLoad: true, clean: false });
   }
   //> Add Btn  01=

@@ -80,6 +80,9 @@ async function trendingGetMovies() {
   const { data } = await API(`trending/movie/day`);
   //console.log(data.results);
   const movies = data.results;
+  // = Limit of the movies =
+  maxPage = data.total_pages;
+  //console.log(maxPage);
   //> Llamar a mi function Movies >>
   createMovies(movies, genericSection, { lazyLoad: true, clean: true });
   // Add Btn Load More =

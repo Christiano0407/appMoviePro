@@ -1,4 +1,6 @@
 //** ==== =====  Location And Hash =======   =====*/
+//*! == Add Max Pages == */
+let maxPage;
 //*? === Add Page All Project === */
 let page = 1;
 let infiniteScroll;
@@ -35,7 +37,7 @@ arrowBtn.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false); //> Output >
 //window.addEventListener("scroll", getPaginatedTrendingMovies); //> Scroll Infinite >
-window.addEventListener("scroll", infiniteScroll);
+window.addEventListener("scroll", infiniteScroll, false);
 
 //*? == Navigation */
 function navigator() {
@@ -43,7 +45,9 @@ function navigator() {
 
   // = Exist o no Infinite Scroll  on page or OutPut = 01 ==
   if (infiniteScroll) {
-    window.addEventListener.remove("scroll", infiniteScroll);
+    window.addEventListener.remove("scroll", infiniteScroll, {
+      passive: false,
+    });
     infiniteScroll = undefined;
   }
 
@@ -65,7 +69,7 @@ function navigator() {
 
   //> Exist or no my Infinite Scroll  = Yes:  02 ==
   if (infiniteScroll) {
-    window.addEventListener("scroll", infiniteScroll);
+    window.addEventListener("scroll", infiniteScroll, { passive: false });
   }
 }
 
@@ -157,6 +161,8 @@ function searchPage() {
   // ["#search,  "buscador"] => Array
   const [_, query] = location.hash.split("=");
   getMoviesBySearch(query);
+
+  // == Scroll Infinite Search  =>
 }
 //*? =  Trends Page  =  */
 function trendsPage() {
