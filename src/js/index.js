@@ -18,6 +18,32 @@ const API = axios.create({
   },
 });
 
+//** ==== Data / == Add Like and (remove) DisLike Button  ==  LocalStorage ==   */
+function likedMoviesList() {
+  const item = JSON.parse(localStorage.getItem("liked__movies"));
+  let movies;
+
+  if (item) {
+    movies = item;
+  } else {
+    movies = {};
+  }
+  return movies;
+}
+
+function likeMovie(movie) {
+  // movie ID
+  const addLikedMovies = likedMoviesList();
+
+  if (addLikedMovies[movie.id]) {
+    addLikedMovies[movie.id] = undefined;
+  } else {
+    addLikedMovies[movie.id] = movie;
+  }
+
+  localStorage.setItem(`liked__movies `, JSON.stringify(addLikedMovies));
+}
+
 //*?  === AXIOS part 02====  */
 //** === Project API MOVIES Container === */
 //*? ==== Trending and Preview  View add HTML  ==== */

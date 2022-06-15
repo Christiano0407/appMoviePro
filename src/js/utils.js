@@ -56,6 +56,8 @@ function createMovies(
     btnLike.addEventListener("click", () => {
       // e.stopPropagation() => Evitar cambiar a la imagen ==
       btnLike.classList.toggle("btnLike--liked");
+      // Add like or disLike =
+      likeMovie(movie);
     });
 
     // = Add Observer=
