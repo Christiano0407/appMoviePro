@@ -197,6 +197,7 @@ button {
 
 .movie-container {
     cursor: pointer;
+    position: relative;
 }
 
 /*? == Solution Js Error === */
@@ -684,9 +685,9 @@ footer {
 }
 
 .btnLike {
-    position: relative;
-    top: -180px;
-    right: 35px;
+    position: absolute;
+    top: 170px;
+    right: 10px;
     height: 30px;
     width: 30px;
     border-radius: 30px;
