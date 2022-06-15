@@ -10,6 +10,12 @@ const genericSection = document.querySelector("#genericList");
 //const movieContainer = document.querySelector(".movie-container");
 const movieDetails = document.querySelector("#movieDetail");
 
+//** Add Liked Section */
+//const likedContainer = document.getElementById("liked");
+//const likedHeader = querySelector(".liked-header");
+const movieListLiked = document.querySelector("#likedMovieList");
+console.log(movieListLiked);
+
 //** ======== Lists & Container ======== */
 const searchForm = document.querySelector("#searchForm");
 const trendingMoviesPreviewList = document.querySelector(

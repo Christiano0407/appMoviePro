@@ -167,7 +167,7 @@ button {
 .header-container,
 .trendingPreview-header,
 .categoriesPreview-container,
-.liked-container {
+.liked-header {
     padding: 0 24px;
 }
 
@@ -178,7 +178,8 @@ button {
 }
 
 .trendingPreview-header,
-.categoriesPreview-title {
+.categoriesPreview-title,
+.liked-header {
     margin-bottom: 24px;
 }
 
@@ -330,7 +331,15 @@ button {
 }
 
 /*? ====== Treding Scroll Slider */
-.trendingPreview-movieList,
+.trendingPreview-movieList {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 241px;
+    padding-left: 24px;
+    padding-bottom: 16px;
+}
+
 .liked-movieList {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -340,8 +349,12 @@ button {
     padding-bottom: 16px;
 }
 
-.trendingPreview-movieList .movie-container,
 .liked-movieList .movie-container {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.trendingPreview-movieList .movie-container {
     display: inline-block;
     margin-right: 8px;
 }

@@ -12,10 +12,46 @@ const lazyLoader = new IntersectionObserver((entries, observer) => {
     }
   });
 });
+
+//** ==== Data / == Add Like and (remove) DisLike Button  ==  LocalStorage ==  Part 01 */
+function likedMoviesList() {
+  const item = JSON.parse(localStorage.getItem("liked__movies"));
+  let movies;
+
+  if (item) {
+    movies = item;
+  } else {
+    movies = {};
+  }
+  return movies;
+}
+
+function likeMovie(movie) {
+  // movie ID
+  const addLikedMovies = likedMoviesList();
+  //console.log(addLikedMovies);
+
+  if (location.hash == " ") {
+    homePage();
+  }
+
+  if (addLikedMovies[movie.id]) {
+    addLikedMovies[movie.id] = undefined;
+  } else {
+    addLikedMovies[movie.id] = movie;
+  }
+
+  //localStorage.setItem(`liked__movies `, JSON.stringify(addLikedMovies));
+  localStorage.setItem(`liked__movies `, JSON.stringify(addLikedMovies));
+  getLikedMovies();
+  getTrendingMoviesPreviews();
+}
+
 //*? == Add Root == */
 //observer.observe();
 
 //*TODO: == Create Movies ==  Agregar los Endpointes de detllaes de peli ==> Movie Container ==== Add lazyLoader= == */
+//** Part 02 LikeMovies == */
 function createMovies(
   movies,
   container,
@@ -53,6 +89,7 @@ function createMovies(
     // = Create Button Liked ==
     const btnLike = document.createElement("button");
     btnLike.classList.add("btnLike");
+    likedMoviesList()[movie.id] && btnLike.classList.add("btnLike--liked");
     btnLike.addEventListener("click", () => {
       // e.stopPropagation() => Evitar cambiar a la imagen ==
       btnLike.classList.toggle("btnLike--liked");
@@ -182,4 +219,12 @@ async function getPaginatedTrendingMovies() {
   btnLoader.classList.add("btnLoad");
   btnLoader.addEventListener("click", getPaginatedTrendingMovies);
   genericSection.appendChild(btnLoader); */
+}
+//** === Part 03 LikedMovies Button ==  */
+function getLikedMovies() {
+  const likedMoviesAdd = likedMoviesList();
+  const arrayMovies = Object.values(likedMoviesAdd);
+
+  createMovies(arrayMovies, movieListLiked, { lazyLoad: true, clean: true });
+  //console.log(likedMoviesAdd);
 }

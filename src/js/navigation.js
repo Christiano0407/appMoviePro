@@ -90,8 +90,10 @@ function homePage() {
   categoriesPreviewSection.classList.remove("inactive");
   genericSection.classList.add("inactive");
   movieDetails.classList.add("inactive");
+  // == Call Functions ==
   getCategoriesPreview();
   getTrendingMoviesPreviews();
+  getLikedMovies();
 }
 //*? =  Category Page  =  */
 function categoryPage() {
