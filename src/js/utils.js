@@ -31,9 +31,11 @@ function likeMovie(movie) {
   const addLikedMovies = likedMoviesList();
   //console.log(addLikedMovies);
 
-  if (location.hash == " ") {
+  /*  if (location.hash == " ") {
     homePage();
-  }
+    getLikedMovies();
+    getTrendingMoviesPreviews();
+  } */
 
   if (addLikedMovies[movie.id]) {
     addLikedMovies[movie.id] = undefined;
@@ -43,8 +45,8 @@ function likeMovie(movie) {
 
   //localStorage.setItem(`liked__movies `, JSON.stringify(addLikedMovies));
   localStorage.setItem(`liked__movies `, JSON.stringify(addLikedMovies));
-  getLikedMovies();
-  getTrendingMoviesPreviews();
+  /* getLikedMovies();
+  getTrendingMoviesPreviews(); */
 }
 
 //*? == Add Root == */
