@@ -31,11 +31,11 @@ function likeMovie(movie) {
   const addLikedMovies = likedMoviesList();
   //console.log(addLikedMovies);
 
-  /*  if (location.hash == " ") {
+  if (location.hash == " ") {
     homePage();
     getLikedMovies();
     getTrendingMoviesPreviews();
-  } */
+  }
 
   if (addLikedMovies[movie.id]) {
     addLikedMovies[movie.id] = undefined;
@@ -91,7 +91,7 @@ function createMovies(
     // = Create Button Liked ==
     const btnLike = document.createElement("button");
     btnLike.classList.add("btnLike");
-    likedMoviesList()[movie.id] && btnLike.classList.add("btnLike--liked");
+    likedMoviesList()[movie.id] && btnLike.classList.add(`btnLike--liked`);
     btnLike.addEventListener("click", () => {
       // e.stopPropagation() => Evitar cambiar a la imagen ==
       btnLike.classList.toggle("btnLike--liked");
@@ -215,18 +215,4 @@ async function getPaginatedTrendingMovies() {
     //console.log(data);
     createMovies(movies, genericSection, { lazyLoad: true, clean: false });
   }
-  //> Add Btn  01=
-  /* const btnLoader = document.createElement("button");
-  btnLoader.innerText = "Cargar Más";
-  btnLoader.classList.add("btnLoad");
-  btnLoader.addEventListener("click", getPaginatedTrendingMovies);
-  genericSection.appendChild(btnLoader); */
-}
-//** === Part 03 LikedMovies Button ==  */
-function getLikedMovies() {
-  const likedMoviesAdd = likedMoviesList();
-  const arrayMovies = Object.values(likedMoviesAdd);
-
-  createMovies(arrayMovies, movieListLiked, { lazyLoad: true, clean: true });
-  //console.log(likedMoviesAdd);
 }

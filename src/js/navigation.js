@@ -88,8 +88,11 @@ function homePage() {
 
   trendingPreviewSection.classList.remove("inactive");
   categoriesPreviewSection.classList.remove("inactive");
+  likedContainer.classList.remove("inactive");
+  movieListLiked.classList.remove("inactive");
   genericSection.classList.add("inactive");
   movieDetails.classList.add("inactive");
+
   // == Call Functions ==
   getCategoriesPreview();
   getTrendingMoviesPreviews();
@@ -108,6 +111,8 @@ function categoryPage() {
   searchForm.classList.add("inactive");
 
   trendingPreviewSection.classList.add("inactive");
+  likedContainer.classList.add("inactive");
+  //movieListLiked.classList.add("inactive");
   categoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetails.classList.add("inactive");
@@ -136,7 +141,11 @@ function movieDetailPage() {
   searchForm.classList.add("inactive");
 
   trendingPreviewSection.classList.add("inactive");
+  likedContainer.classList.add("inactive");
+  //movieListLiked.classList.add("inactive");
   categoriesPreviewSection.classList.add("inactive");
+  likedContainer.classList.remove("inactive");
+  //movieListLiked.classList.add("inactive");
   genericSection.classList.add("inactive");
   movieDetails.classList.remove("inactive");
 
@@ -157,6 +166,8 @@ function searchPage() {
   searchForm.classList.remove("inactive");
 
   trendingPreviewSection.classList.add("inactive");
+  likedContainer.classList.add("inactive");
+  //movieListLiked.classList.add("inactive");
   categoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetails.classList.add("inactive");
@@ -181,6 +192,8 @@ function trendsPage() {
   searchForm.classList.add("inactive");
 
   trendingPreviewSection.classList.add("inactive");
+  likedContainer.classList.add("inactive");
+  //movieListLiked.classList.add("inactive");
   categoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetails.classList.add("inactive");

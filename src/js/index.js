@@ -133,6 +133,15 @@ async function getSimilarMoviesId(id) {
   createMovies(similarMovies, relatedMoviesContainer);
 }
 
+//** === Part 03 LikedMovies Button ==  */
+function getLikedMovies() {
+  const likedMoviesAdd = likedMoviesList();
+  const arrayMovies = Object.values(likedMoviesAdd);
+
+  createMovies(arrayMovies, movieListLiked, { lazyLoad: true, clean: true });
+  //console.log(likedMoviesAdd);
+}
+
 //*?====== CALL Functions ======= */
 /* getCategoriesPreview();
  getTrendingMoviesPreviews(); */
